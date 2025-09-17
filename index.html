@@ -159,6 +159,12 @@
                 </div>
 
                 <div class="flex items-center space-x-4">
+                     <div class="relative mr-4">
+                        <button id="add-client-button" class="modal-trigger flex items-center bg-indigo-500 text-white px-3 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-600" data-modal-target="onboarding-modal">
+                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            Klien Baru
+                        </button>
+                    </div>
                      <div class="relative">
                         <input type="text" placeholder="Cari transaksi..." class="hidden sm:block w-48 lg:w-64 pl-4 pr-10 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <svg class="w-5 h-5 text-gray-400 absolute top-1/2 right-3 transform -translate-y-1/2 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -806,6 +812,87 @@
                 </form></div>
             </div>
         </div>
+
+        <!-- Onboarding Modal -->
+        <div id="onboarding-modal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 hidden">
+            <div class="relative top-10 mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-xl bg-white">
+                <div class="flex justify-between items-center pb-3 border-b">
+                    <p class="text-2xl font-bold">Onboarding Klien Baru</p>
+                    <div class="modal-close cursor-pointer z-50"><svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path></svg></div>
+                </div>
+                <div class="mt-5">
+                    <!-- Step 1: Client Info -->
+                    <div class="onboarding-step" data-step="1">
+                        <h3 class="font-semibold text-lg mb-4">Langkah 1: Informasi Dasar Klien</h3>
+                        <form class="grid grid-cols-2 gap-4">
+                            <div class="col-span-2"><label>Nama Perusahaan Klien</label><input type="text" class="w-full border-gray-300 rounded-md shadow-sm"></div>
+                            <div><label>NPWP</label><input type="text" class="w-full border-gray-300 rounded-md shadow-sm"></div>
+                            <div><label>Tanggal Mulai Pembukuan</label><input type="date" class="w-full border-gray-300 rounded-md shadow-sm"></div>
+                        </form>
+                    </div>
+                    <!-- Step 2: Opening Balances -->
+                    <div class="onboarding-step hidden" data-step="2">
+                        <h3 class="font-semibold text-lg mb-4">Langkah 2: Saldo Awal Neraca</h3>
+                        <p class="text-sm text-gray-600 mb-4">Masukkan saldo awal akun per tanggal mulai pembukuan.</p>
+                        <div class="max-h-64 overflow-y-auto">
+                            <div class="grid grid-cols-3 gap-2 items-center mb-2">
+                                <label class="font-medium text-sm">Akun</label>
+                                <label class="font-medium text-sm text-right">Debit</label>
+                                <label class="font-medium text-sm text-right">Kredit</label>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 items-center mb-2">
+                                <span class="text-sm">1-1000 Kas</span>
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right">
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right bg-gray-100" disabled>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 items-center mb-2">
+                                <span class="text-sm">1-1200 Piutang Usaha</span>
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right">
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right bg-gray-100" disabled>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 items-center mb-2">
+                                <span class="text-sm">2-1000 Utang Usaha</span>
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right bg-gray-100" disabled>
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right">
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 items-center mb-2">
+                                <span class="text-sm">3-1000 Modal Disetor</span>
+                                 <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right bg-gray-100" disabled>
+                                <input type="number" placeholder="0" class="border-gray-300 rounded-md shadow-sm text-right">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 3: Bulk Import -->
+                    <div class="onboarding-step hidden" data-step="3">
+                        <h3 class="font-semibold text-lg mb-4">Langkah 3: Impor Transaksi Massal (Opsional)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Untuk mempercepat, rekap dokumen klien ke template Excel lalu unggah di sini.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block font-medium text-sm">Transaksi Jurnal Umum & Bank</label>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <a href="#" class="text-sm text-indigo-600 font-semibold">Unduh Template</a>
+                                    <input type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-sm">Faktur Penjualan</label>
+                                 <div class="flex items-center gap-4 mt-1">
+                                    <a href="#" class="text-sm text-indigo-600 font-semibold">Unduh Template</a>
+                                    <input type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="flex items-center justify-between pt-3 border-t mt-4">
+                        <button data-action="prev" class="onboarding-nav-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded disabled:opacity-50" disabled>Sebelumnya</button>
+                        <button data-action="next" class="onboarding-nav-button bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Selanjutnya</button>
+                        <button data-action="finish" class="onboarding-nav-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden">Selesaikan Setup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -924,6 +1011,52 @@
                 });
             });
 
+            // Onboarding Modal Logic
+            const onboardingModal = document.getElementById('onboarding-modal');
+            const onboardingSteps = onboardingModal.querySelectorAll('.onboarding-step');
+            const onboardingNavButtons = onboardingModal.querySelectorAll('.onboarding-nav-button');
+            let currentStep = 1;
+            const totalSteps = onboardingSteps.length;
+
+            const updateOnboardingView = () => {
+                onboardingSteps.forEach(step => {
+                    if (parseInt(step.dataset.step) === currentStep) {
+                        step.classList.remove('hidden');
+                    } else {
+                        step.classList.add('hidden');
+                    }
+                });
+                
+                const prevButton = onboardingModal.querySelector('[data-action="prev"]');
+                const nextButton = onboardingModal.querySelector('[data-action="next"]');
+                const finishButton = onboardingModal.querySelector('[data-action="finish"]');
+
+                prevButton.disabled = currentStep === 1;
+                nextButton.classList.toggle('hidden', currentStep === totalSteps);
+                finishButton.classList.toggle('hidden', currentStep !== totalSteps);
+            };
+
+            onboardingNavButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const action = button.dataset.action;
+                    if (action === 'next' && currentStep < totalSteps) {
+                        currentStep++;
+                    } else if (action === 'prev' && currentStep > 1) {
+                        currentStep--;
+                    } else if (action === 'finish') {
+                        // Logic to save data and close modal
+                        onboardingModal.classList.add('hidden');
+                        currentStep = 1; // Reset for next time
+                    }
+                    updateOnboardingView();
+                });
+            });
+            // Initial view setup for onboarding
+            if (onboardingModal) {
+                 updateOnboardingView();
+            }
+
+
             // Settings Tab Logic
             const settingTabs = document.querySelectorAll('.setting-tab');
             const settingPanels = document.querySelectorAll('.setting-panel');
@@ -953,4 +1086,5 @@
     </script>
 </body>
 </html>
+
 
