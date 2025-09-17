@@ -189,25 +189,33 @@
                         <!-- Tren Penjualan (2 columns wide) -->
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Tren Penjualan Bulanan</h3>
-                            <canvas id="salesTrendChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="salesTrendChart"></canvas>
+                            </div>
                         </div>
 
                         <!-- Penjualan per Kategori -->
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Penjualan per Kategori Produk</h3>
-                            <canvas id="productCategoryChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="productCategoryChart"></canvas>
+                            </div>
                         </div>
                         
                         <!-- Status Order Produksi -->
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Status Order Produksi</h3>
-                            <canvas id="productionStatusChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="productionStatusChart"></canvas>
+                            </div>
                         </div>
 
                         <!-- Umur Piutang (AR Aging) -->
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Umur Piutang (AR Aging)</h3>
-                            <canvas id="arAgingChart"></canvas>
+                             <div class="relative h-80">
+                                <canvas id="arAgingChart"></canvas>
+                            </div>
                         </div>
 
                         <!-- Peringatan Stok Rendah -->
@@ -335,11 +343,15 @@
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
                         <div class="glass-card p-6 rounded-xl lg:col-span-3">
                             <h3 class="font-semibold text-white mb-4">Alur Kas (Cash Flow)</h3>
-                            <canvas id="cashFlowChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="cashFlowChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Rincian Biaya Operasional</h3>
-                            <canvas id="expenseChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="expenseChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -349,15 +361,21 @@
                      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Nilai Stok per Kategori</h3>
-                            <canvas id="inventoryValueChart"></canvas>
+                            <div class="relative h-72">
+                                <canvas id="inventoryValueChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Perputaran Stok (Turnover Rate)</h3>
-                            <canvas id="inventoryTurnoverChart"></canvas>
+                            <div class="relative h-72">
+                                <canvas id="inventoryTurnoverChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Barang Masuk vs. Keluar (30 Hari Terakhir)</h3>
-                            <canvas id="inOutChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="inOutChart"></canvas>
+                            </div>
                         </div>
                      </div>
                 </div>
@@ -418,7 +436,9 @@
                         </div>
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Pembelian per Supplier</h3>
-                            <canvas id="purchaseSupplierChart"></canvas>
+                            <div class="relative h-72">
+                                <canvas id="purchaseSupplierChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -428,15 +448,21 @@
                      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div class="glass-card p-6 rounded-xl lg:col-span-2">
                             <h3 class="font-semibold text-white mb-4">Pencapaian Penjualan vs Target</h3>
-                            <canvas id="salesTargetChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="salesTargetChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl">
                              <h3 class="font-semibold text-white mb-4">Top 5 Produk Terlaris</h3>
-                            <canvas id="topProductsChart"></canvas>
+                            <div class="relative h-72">
+                                <canvas id="topProductsChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Distribusi Penjualan per Wilayah</h3>
-                            <canvas id="salesRegionChart"></canvas>
+                            <div class="relative h-72">
+                                <canvas id="salesRegionChart"></canvas>
+                            </div>
                         </div>
                      </div>
                 </div>
@@ -464,11 +490,15 @@
                      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Output Produksi per Lini</h3>
-                             <canvas id="productionLineChart"></canvas>
+                             <div class="relative h-72">
+                                <canvas id="productionLineChart"></canvas>
+                            </div>
                         </div>
                         <div class="glass-card p-6 rounded-xl">
                             <h3 class="font-semibold text-white mb-4">Alasan Downtime Mesin</h3>
-                             <canvas id="downtimeReasonChart"></canvas>
+                             <div class="relative h-72">
+                                <canvas id="downtimeReasonChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -951,3 +981,4 @@
     </script>
 </body>
 </html>
+
